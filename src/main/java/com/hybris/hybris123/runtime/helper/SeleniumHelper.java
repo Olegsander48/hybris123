@@ -696,7 +696,7 @@ public class SeleniumHelper {
         optionArguments.add("--allow-insecure-localhost");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments(optionArguments);
-		chromeOptions = chromeOptions.setAcceptInsecureCerts(true);
+		chromeOptions.setAcceptInsecureCerts(true);
 
 		if (WINDOWS) {
 			dvr = new ChromeDriver(chromeOptions);

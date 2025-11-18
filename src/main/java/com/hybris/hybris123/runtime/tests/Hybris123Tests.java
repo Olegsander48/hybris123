@@ -125,15 +125,15 @@ public class Hybris123Tests {
 	@Snippet("com.hybris.hybris123.Hybris123Tests_testExtensionCreatedOk")
 	public void testExtensionCreatedOk() {
 		assertTrue("New constants are not there",
-				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/concerttours/constants/ConcerttoursConstants.java"));
+				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/de/hybris/platform/concerttours/constants/ConcerttoursConstants.java"));
 		assertTrue("New services are not there",
-				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/concerttours/service/ConcerttoursService.java"));
+				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/de/hybris/platform/concerttours/service/ConcerttoursService.java"));
 		assertTrue("New default services are not there",
-				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/concerttours/service/impl/DefaultConcerttoursService.java"));
+				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/de/hybris/platform/concerttours/service/impl/DefaultConcerttoursService.java"));
 		assertTrue("New setup is not there",
-				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/concerttours/setup/ConcerttoursSystemSetup.java"));
+				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/de/hybris/platform/concerttours/setup/ConcerttoursSystemSetup.java"));
 		assertTrue("New standalone is not there",
-				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/concerttours/ConcerttoursStandalone.java"));
+				FileHelper.fileExists("../hybris/bin/custom/concerttours/src/de/hybris/platform/concerttours/ConcerttoursStandalone.java"));
 	}
 
 	@Test
