@@ -58,7 +58,7 @@ public class SeleniumHelper {
 	private static WebDriver dvr = null;
 
 	private static final String yUSERNAME = "admin";
-	private static final String yPASSWORD = System.getenv("INITIAL_ADMIN");
+	private static final String yPASSWORD = "%INITIAL_ADMIN%";
 
 	private static final int PAUSE_MS = 2000;
 	private static final int PAUSE_FOR_SERVER_START_MS  = 120000;
@@ -84,14 +84,61 @@ public class SeleniumHelper {
 			int version = 0;
 
 			if ( VersionHelper.getVersion().equals("UNDEFINED")) {
-				url = "https://localhost:9002/login.jsp";
+				url = "https://localhost:9002/login";
 			} else {
 				version = Integer.parseInt(VersionHelper.getVersion().toString().substring(1));
 
 				if (version < 2005) {
 					url = "https://localhost:9002/login.jsp";
 				} else {
-					url = "https://localhost:9002/login.jsp";
+					url = "https://localhost:9002/";
+				}
+			}
+
+			waitForConnectionToOpen(url, PAUSE_FOR_SERVER_START_MS);
+		 	getDriver().get(url);
+
+			pauseMS();
+			WebElement usernameElem = findElement(By.name("j_username"));
+			WebElement passwordElem = findElement(By.name("j_password"));
+
+			clearField(usernameElem);
+			usernameElem.sendKeys(yUSERNAME);
+			clearField(passwordElem);
+			passwordElem.sendKeys(yPASSWORD);
+			pauseMS();
+			passwordElem.submit();
+			Assert.assertTrue(waitFor("div", "Memory overview"));
+
+			return true;
+		} catch (Exception e) {
+			if (!getDriver().findElements(By.xpath("//button[text()='Initialize']")).isEmpty()) {
+				// sometimes login menu does not appear on Unix
+				return true;
+			} else {
+				StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+				String callingMethod = stackTraceElements[2].getMethodName();
+				Hybris123Tests.fail(callingMethod, "Connect Exception: " + e.getMessage());
+
+				return false;
+			}
+		}
+	}
+
+	public static boolean loginToPowertoolsDomain()  {
+		try {
+			String url;
+			int version = 0;
+
+			if ( VersionHelper.getVersion().equals("UNDEFINED")) {
+				url = "https://powertools.localhost:9002/login";
+			} else {
+				version = Integer.parseInt(VersionHelper.getVersion().toString().substring(1));
+
+				if (version < 2005) {
+					url = "https://powertools.localhost:9002/login.jsp";
+				} else {
+					url = "https://powertools.localhost:9002/";
 				}
 			}
 

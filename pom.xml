@@ -69,7 +69,13 @@
  		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.26.0</version>
+			<version>4.38.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-devtools</artifactId>
+			<version>4.0.0-beta-4</version>
 		</dependency>
 		
 	  	<dependency>
@@ -125,7 +131,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<!--Dependency Versions-->
-        <selenium.version>4.26.0</selenium.version>
+        <selenium.version>4.27.0</selenium.version>
         <!--Plugin Versions-->
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 	</properties>
@@ -152,9 +158,6 @@
                     <plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
-						<configuration>
-							<packagingExcludes>WEB-INF/classes/com/hybris/hybris123/contentpreparation/**</packagingExcludes>
-						</configuration>
 					</plugin>
 		
 					<plugin>

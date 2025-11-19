@@ -27,6 +27,7 @@ import static com.hybris.hybris123.runtime.helper.SeleniumHelper.getMethodName;
 import static com.hybris.hybris123.runtime.helper.SeleniumHelper.getTitle;
 import static com.hybris.hybris123.runtime.helper.SeleniumHelper.loginToBackOffice;
 import static com.hybris.hybris123.runtime.helper.SeleniumHelper.loginToCloudBackOffice;
+import static com.hybris.hybris123.runtime.helper.SeleniumHelper.loginToPowertoolsDomain;
 import static com.hybris.hybris123.runtime.helper.SeleniumHelper.modifyABandToHaveNegativeAlbumSales;
 import static com.hybris.hybris123.runtime.helper.SeleniumHelper.navigateTo;
 import static com.hybris.hybris123.runtime.helper.SeleniumHelper.reloadConstraints;
@@ -307,7 +308,8 @@ public class Hybris123Tests {
 	@Test
 	@Snippet("com.hybris.hybris123.Hybris123Tests_loginAndCheckForConcertToursExtension")
 	public void loginAndCheckForConcertToursExtension()  {
-		canLoginToHybrisCommerce();
+		// Login to powertools domain first to establish session
+		loginToPowertoolsDomain();
 		navigateTo("https://powertools.localhost:9002/platform/extensions") ;
 		assertTrue( waitForExtensionListing("concerttours"));
 	}
