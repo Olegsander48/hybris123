@@ -407,14 +407,14 @@ public class Hybris123Tests {
 	@Test
 	@Snippet("com.hybris.hybris123.Hybris123Tests_testCoCImpex")
 	public void testCoCImpex() throws Exception {
-		canLoginToHybrisCommerce();
+		loginToPowertoolsDomain();
 		navigateTo("https://powertools.localhost:9002/platform/init");
 		waitForThenClickButtonWithText("Initialize");
 		waitForThenClickOkInAlertWindow();
 		waitForInitToComplete();
 		closeBrowser();
 
-		canLoginToHybrisCommerce();
+		loginToPowertoolsDomain();
 		navigateTo("https://powertools.localhost:9002/console/flexsearch");
 		waitForFlexQueryFieldThenSubmit("SELECT {pk}, {code}, {history} FROM {Band}");
 		assertTrue( waitFor("td","A cappella singing group based in Munich"));
