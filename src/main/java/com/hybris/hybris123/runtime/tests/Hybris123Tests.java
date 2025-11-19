@@ -146,12 +146,12 @@ public class Hybris123Tests {
 		"setHashtag", "setBand"));
 
 		assertTrue("The new BandModel does not support Code, Name, History, AlbumSales",
-		FileHelper.fileContains("../hybris/bin/platform/bootstrap/gensrc/concerttours/model/BandModel.java",
+		FileHelper.fileContains("../hybris/bin/platform/bootstrap/gensrc/de/hybris/platform/concerttours/model/BandModel.java",
 		"getName","getHistory","getCode", "getAlbumSales",
 		"setName","setHistory","setCode", "setAlbumSales"));
 
 		assertTrue("The new ConcertModel does not extend VariantProductModel or does not support Venue and Date",
-		FileHelper.fileContains( "../hybris/bin/platform/bootstrap/gensrc/concerttours/model/ConcertModel.java",
+		FileHelper.fileContains( "../hybris/bin/platform/bootstrap/gensrc/de/hybris/platform/concerttours/model/ConcertModel.java",
 		"ConcertModel extends VariantProductModel",
 		"getVenue","getDate",
 		"setVenue","setDate"));
