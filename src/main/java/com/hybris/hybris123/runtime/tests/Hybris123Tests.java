@@ -362,7 +362,7 @@ public class Hybris123Tests {
 	@Test
 	@Snippet("com.hybris.hybris123.Hybris123Tests_testHookImpex")
 	public void testHookImpex() throws Exception {
-		canLoginToHybrisCommerce();
+		loginToPowertoolsDomain();
 		navigateTo("https://powertools.localhost:9002/platform/init");
 		waitForThenClickButtonWithText("Initialize");
 		waitForThenClickOkInAlertWindow();
@@ -388,7 +388,7 @@ public class Hybris123Tests {
 	@Test
 	@Snippet("com.hybris.hybris123.Hybris123Tests_simulateManualImpex")
 	public void simulateManualImpex() throws Exception {
-		String impex = FileHelper.getContents("src/main/webapp/resources/impex/essentialdata-bands.impex");
+		String impex = FileHelper.getContents("src/main/webapp/resources/impex/concerttours-bands.impex");
 		canLoginToHybrisCommerce();
 		navigateTo("https://powertools.localhost:9002/console/impex/import");
 		submitImpexScript(impex);

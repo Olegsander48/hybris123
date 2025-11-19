@@ -34,7 +34,7 @@ public class LogHelper {
 		for (int i = 0; i < nTries; i++) {	
 			File logFile = FileHelper.lastModifiedLogFile();
 			LOG.debug("Parsing {}.", logFile.getPath());
-			try (Stream<String> stream = Files.lines(logFile.toPath())) {
+			try (Stream<String> stream = Files.lines(logFile.toPath(), java.nio.charset.StandardCharsets.ISO_8859_1)) {
 				msSinceLastLogLine = stream.filter(line -> line.contains(entry))
 						.map(LogHelper::getMSSinceGivenDate).reduce((first, second) -> second).orElse(Long.MAX_VALUE);
 				

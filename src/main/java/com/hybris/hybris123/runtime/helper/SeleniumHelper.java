@@ -131,12 +131,12 @@ public class SeleniumHelper {
 			int version = 0;
 
 			if ( VersionHelper.getVersion().equals("UNDEFINED")) {
-				url = "https://powertools.localhost:9002/login";
+				url = "https://powertools.localhost:9002/";
 			} else {
 				version = Integer.parseInt(VersionHelper.getVersion().toString().substring(1));
 
 				if (version < 2005) {
-					url = "https://powertools.localhost:9002/login.jsp";
+					url = "https://powertools.localhost:9002/";
 				} else {
 					url = "https://powertools.localhost:9002/";
 				}
